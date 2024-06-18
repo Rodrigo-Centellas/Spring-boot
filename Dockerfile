@@ -1,5 +1,5 @@
 # Etapa 1: Construcción
-FROM openjdk:21-jdk-slim
+FROM openjdk:21-bullseye
 RUN apt-get update && \
     apt-get install -y maven
 WORKDIR /app
