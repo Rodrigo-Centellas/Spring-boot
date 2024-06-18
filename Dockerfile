@@ -1,9 +1,11 @@
-FROM maven:maven:3.9.5-openjdk-21 AS build
+# Etapa 1: Construcción
+FROM maven:3.8.6-openjdk-17-slim AS build
+WORKDIR /app
 COPY . .
-RUN mvn clean package -DskipTest
+RUN mvn clean package -DskipTests
 
-FROM openjdk:21-jdk-slim
-COPY  --FROM=build /target/demo-0.0.1-SNAPSHOT demo.jar
-
+# Etapa 2: Imagen final
+FROM openjdk:17-jdk-slim
+COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar demo.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-java","demo.jar"]
+ENTRYPOINT ["java", "-jar", "demo.jar"]
