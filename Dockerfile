@@ -1,5 +1,5 @@
 # Etapa 1: Construcción
-FROM maven:3.8.6-openjdk-18 AS build
+FROM maven:3.8.6-openjdk-21 AS build
 WORKDIR /app
 COPY . .
 ENV LANG C.UTF-8
