@@ -33,24 +33,41 @@ public class AppConfig {
         return http.build();
     }
 
+//    private CorsConfigurationSource corsConfigurationSource() {
+//        return new CorsConfigurationSource() {
+//            @Override
+//            public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+//                CorsConfiguration cfg = new CorsConfiguration();
+//                cfg.setAllowedOrigins(Arrays.asList(
+//                        "http://localhost:3000",
+//                        "http://localhost:5173",
+//                        "http://localhost:4200",
+//                        "http://10.0.2.2:8081",
+//                        "https://jose-test.site"
+//
+//                ));
+//                cfg.setAllowedMethods(Collections.singletonList("*"));
+//                cfg.setAllowCredentials(true);
+//                cfg.setAllowedHeaders(Collections.singletonList("*"));
+//                cfg.setExposedHeaders(Arrays.asList("Authorization"));
+//                cfg.setMaxAge(3600L);
+//
+//                return cfg;
+//            }
+//        };
+//    }
+
     private CorsConfigurationSource corsConfigurationSource() {
         return new CorsConfigurationSource() {
             @Override
             public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                 CorsConfiguration cfg = new CorsConfiguration();
-                cfg.setAllowedOrigins(Arrays.asList(
-                        "http://localhost:3000",
-                        "http://localhost:5173",
-                        "http://localhost:4200",
-                        "http://10.0.2.2:8081"
-
-                ));
+                cfg.setAllowedOrigins(Collections.singletonList("*"));
                 cfg.setAllowedMethods(Collections.singletonList("*"));
                 cfg.setAllowCredentials(true);
                 cfg.setAllowedHeaders(Collections.singletonList("*"));
                 cfg.setExposedHeaders(Arrays.asList("Authorization"));
                 cfg.setMaxAge(3600L);
-
                 return cfg;
             }
         };
