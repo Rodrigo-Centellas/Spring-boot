@@ -39,10 +39,6 @@ public class AppConfig {
             public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                 CorsConfiguration cfg = new CorsConfiguration();
                 cfg.setAllowedOrigins(Arrays.asList(
-                        "http://localhost:3000",
-                        "http://localhost:5173",
-                        "http://localhost:4200",
-                        "http://10.0.2.2:8081"
 
                 ));
                 cfg.setAllowedMethods(Collections.singletonList("*"));
